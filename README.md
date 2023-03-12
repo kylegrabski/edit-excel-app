@@ -7,6 +7,8 @@ The upload is then converted to JSON and is displayed on the screen that mimics 
 
 Users can then edit the values in the cells and can save the changes and download the updated file as `.xlsx` or `.csv`. 
 
+![Initial Excel Edit Demo](edit-excel-intro.gif)
+
 
 ## FUTURE FEATURES
 - Save uploads (limited amount)
