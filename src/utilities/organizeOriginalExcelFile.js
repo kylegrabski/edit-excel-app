@@ -13,8 +13,7 @@ class OrganizeOriginalExcelFile {
         let firstSheetName = workbook.SheetNames[0];
         let worksheet = workbook.Sheets[firstSheetName];
         let results = XLSX.utils.sheet_to_json(worksheet, { defval: '' });
-        console.log(`RESULTS!: `, results);
-        return results
+        return results;
     }
 
 }
