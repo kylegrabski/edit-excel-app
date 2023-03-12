@@ -6,7 +6,7 @@
         <div>
             <v-file-input v-model="selectedFile" show-size accept="file/" label="File Input">
             </v-file-input>
-            <v-btn elevation="2" @click="displayExcel()">Display Excel File</v-btn>
+            <v-btn elevation="2" :disabled="!selectedFile" @click="displayExcel()">Display Excel File</v-btn>
         </div>
 
         <div v-if="selectedFileAsJson">
@@ -14,11 +14,15 @@
                 HERE'S THE FILE!!!
             </h1>
             <vue-excel-editor v-model="selectedFileAsJson">
-                <vue-excel-column field="index"   label="User ID"       type="number" width="80px" />
-                <vue-excel-column field="name"   label="Name"          type="string" width="150px" />
-                <vue-excel-column field="position"  label="Position"       type="string" width="130px" />
+                <vue-excel-column field="index" label="User ID" type="number" width="80px" />
+                <vue-excel-column field="name" label="Name" type="string" width="150px" />
+                <vue-excel-column field="position" label="Position" type="string" width="130px" />
             </vue-excel-editor>
         </div>
+
+        <v-alert v-model="errorAlert" dense dismissible outlined type="error">
+            {{ errorMessage }}
+        </v-alert>
     </div>
 </template>
   
@@ -29,16 +33,23 @@ export default {
     name: 'HomePage',
 
     data: () => ({
+        errorAlert: false,
+        errorMessage: null,
         selectedFile: null,
-        selectedFileAsJson: ""
+        selectedFileAsJson: null
     }),
     methods: {
         async displayExcel() {
-            // Display file here
-            // We can then have a button to store the file
-            let orgFile = new OrganizeOriginalExcelFile(this.selectedFile);
-            this.selectedFileAsJson = await orgFile.convertExcelToJson();
-            console.log(`ourResults: `, this.selectedFileAsJson);
+            try {
+                if (this.selectedFile) {
+                    let orgFile = new OrganizeOriginalExcelFile(this.selectedFile);
+                    this.selectedFileAsJson = await orgFile.convertExcelToJson();
+                }
+            } catch (err) {
+                this.errorMessage = err;
+                this.errorAlert = true;
+                console.error(err);
+            }
         }
     }
 }
