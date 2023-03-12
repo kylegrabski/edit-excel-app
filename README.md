@@ -1,7 +1,14 @@
 # edit-excel-app
-Proof of concept application. Displays excel file from a users upload that can be edited in real time.
+### __Proof of concept application.__ 
 
-### FUTURE FEATURES
+Allows users to upload Excel files (`.xlsx` or `.csv`).
+
+The upload is then converted to JSON and is displayed on the screen that mimics an Excel file.
+
+Users can then edit the values in the cells and can save the changes and download the updated file as `.xlsx` or `.csv`. 
+
+
+## FUTURE FEATURES
 - Save uploads (limited amount)
 - Allow unique users
 - Connect stored uploads to each user
