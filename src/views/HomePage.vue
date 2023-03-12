@@ -14,14 +14,9 @@
                 HERE'S THE FILE!!!
             </h1>
             <vue-excel-editor v-model="selectedFileAsJson">
-                <vue-excel-column :field="selectedFileAsJson.index" label="index"
-                    type="number" width="80px" />
-                <vue-excel-column :field="selectedFileAsJson.name" label="Name" type="string" width="80px" />
-                <!-- <vue-excel-column field="name" label="Name" type="string" width="150px" /> -->
-                <!-- <vue-excel-column field="phone" label="Contact" type="string" width="130px" />
-                <vue-excel-column field="gender" label="Gender" type="select" width="50px" :options="['F', 'M', 'U']" />
-                <vue-excel-column field="age" label="Age" type="number" width="70px" />
-                <vue-excel-column field="birth" label="Date Of Birth" type="date" width="80px" /> -->
+                <vue-excel-column field="index"   label="User ID"       type="number" width="80px" />
+                <vue-excel-column field="name"   label="Name"          type="string" width="150px" />
+                <vue-excel-column field="position"  label="Position"       type="string" width="130px" />
             </vue-excel-editor>
         </div>
     </div>
