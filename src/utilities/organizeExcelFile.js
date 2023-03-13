@@ -7,7 +7,7 @@ class OrganizeExcelFile {
 
     async convertExcelToJson() {
         /* Using the XLSX package, we turn the Excel file into an array of objects,
-        where each object is a lane or 'stop' */
+        where each object contains the column values */
         let data = await this.file.arrayBuffer();
         let workbook = XLSX.read(data);
         let firstSheetName = workbook.SheetNames[0];
@@ -22,7 +22,7 @@ class OrganizeExcelFile {
         let wb = XLSX.utils.book_new();
         console.log(`wb: `, wb);
         XLSX.utils.book_append_sheet(wb, ws, 'All Data');
-        XLSX.writeFile(wb, `HELLO_updated.xlsx`);
+        XLSX.writeFile(wb, `_updated.xlsx`);
     }
 }
 
