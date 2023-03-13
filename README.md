@@ -22,8 +22,10 @@ Users can then edit the values in the cells and can save the changes and downloa
 - [vue-excel-editor 1.5.19](https://www.npmjs.com/package/vue-excel-editor)
 
 ## FUTURE FEATURES
+- Have users choose either `.xlsx` or `.csv` extensions on download
 - Save uploads (limited amount)
 - Allow unique users
 - Connect stored uploads to each user
 - Add socket to view updates in real time
 - Caching of edited files
+- Styling
