@@ -11,7 +11,7 @@ Users can then edit the values in the cells and can save the changes and downloa
 ## Uploading and Editing File
 ![Initial Excel Edit Demo](/src/assets/edit-excel-intro.gif)
 
-## Downloading the edited file
+## Downloading the Edited File
 ![Initial Excel Download Demo](/src/assets/edit-excel-download-vid.gif)
 
 
