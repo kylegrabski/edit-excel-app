@@ -10,6 +10,12 @@ Users can then edit the values in the cells and can save the changes and downloa
 ![Initial Excel Edit Demo](/src/assets/edit-excel-intro.gif)
 
 
+## Tech used
+- [Vue 2.6.14 ](https://v2.vuejs.org/)
+- [Vuetify 2.6.0](https://v2.vuetifyjs.com/en/)
+- [xlsx 0.17.5](https://www.npmjs.com/package/xlsx)
+- (vue-excel-editor 1.5.19)[https://www.npmjs.com/package/vue-excel-editor]
+
 ## FUTURE FEATURES
 - Save uploads (limited amount)
 - Allow unique users
