@@ -10,14 +10,14 @@
         </div>
 
         <div v-if="selectedFileAsJson">
-            <h1>
-                HERE'S THE FILE!!!
-            </h1>
-            <vue-excel-editor v-model="selectedFileAsJson">
+            <vue-excel-editor ref="grid" v-model="selectedFileAsJson">
+                <!-- @TODO Make a for loop to create columns instead of hardcoding! -->
+                <!-- <vue-excel-column v-for="item in selectedFileAsJson" :key="item.index" field="index" label="User ID" type="number" width="80px" /> -->
                 <vue-excel-column field="index" label="User ID" type="number" width="80px" />
                 <vue-excel-column field="name" label="Name" type="string" width="150px" />
-                <vue-excel-column field="position" label="Position" type="string" width="130px" />
+                <vue-excel-column field="position" label="Position" type="string" width="170px" />
             </vue-excel-editor>
+            <v-btn elevation="2" @click="downloadHandler()">Download File</v-btn>
         </div>
 
         <v-alert v-model="errorAlert" dense dismissible outlined type="error">
@@ -27,7 +27,7 @@
 </template>
   
 <script>
-import OrganizeOriginalExcelFile from "../utilities/organizeOriginalExcelFile"
+import OrganizeExcelFile from "../utilities/organizeExcelFile"
 
 export default {
     name: 'HomePage',
@@ -42,7 +42,7 @@ export default {
         async displayExcel() {
             try {
                 if (this.selectedFile) {
-                    let orgFile = new OrganizeOriginalExcelFile(this.selectedFile);
+                    let orgFile = new OrganizeExcelFile(this.selectedFile);
                     this.selectedFileAsJson = await orgFile.convertExcelToJson();
                 }
             } catch (err) {
@@ -50,6 +50,15 @@ export default {
                 this.errorAlert = true;
                 console.error(err);
             }
+        },
+        downloadHandler() {
+            // let orgFile = new OrganizeExcelFile(this.selectedFileAsJson)
+            // console.log(`handler hello: `, this.selectedFileAsJson);
+            // orgFile.downloadExcelFile()
+            let format = 'xlsx'
+            let exportSelectedOnly = true
+            let filename = 'test'
+            this.$refs.grid.exportTable(format, exportSelectedOnly, filename)
         }
     }
 }
