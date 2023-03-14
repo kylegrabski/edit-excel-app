@@ -1,5 +1,5 @@
 # edit-excel-app
-### __Proof of concept application.__ 
+### __WORK IN PROGRESS Proof of concept application.__ 
 
 Allows users to upload Excel files (`.xlsx` or `.csv`).
 
