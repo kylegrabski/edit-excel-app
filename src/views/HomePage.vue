@@ -52,9 +52,6 @@ export default {
             }
         },
         downloadHandler() {
-            // let orgFile = new OrganizeExcelFile(this.selectedFileAsJson)
-            // console.log(`handler hello: `, this.selectedFileAsJson);
-            // orgFile.downloadExcelFile()
             let format = 'xlsx'
             let exportSelectedOnly = true
             let filename = 'test'

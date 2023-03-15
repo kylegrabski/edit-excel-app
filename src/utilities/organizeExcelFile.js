@@ -15,15 +15,6 @@ class OrganizeExcelFile {
         let results = XLSX.utils.sheet_to_json(worksheet, { defval: '' });
         return results;
     }
-
-    downloadExcelFile() {
-        let ws = XLSX.utils.json_to_sheet(this.file);
-        console.log(`ws: `, ws);
-        let wb = XLSX.utils.book_new();
-        console.log(`wb: `, wb);
-        XLSX.utils.book_append_sheet(wb, ws, 'All Data');
-        XLSX.writeFile(wb, `HELLO_updated.xlsx`);
-    }
 }
 
 export default OrganizeExcelFile;
