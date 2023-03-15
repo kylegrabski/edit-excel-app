@@ -7,7 +7,7 @@ class OrganizeExcelFile {
 
     async convertExcelToJson() {
         /* Using the XLSX package, we turn the Excel file into an array of objects,
-        where each object is a lane or 'stop' */
+        where each object contains the column values */
         let data = await this.file.arrayBuffer();
         let workbook = XLSX.read(data);
         let firstSheetName = workbook.SheetNames[0];
